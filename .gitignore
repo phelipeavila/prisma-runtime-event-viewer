@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+
+node_modules/
+frontend/dist/
+backend/app/static/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+backend/data/
+*.duckdb

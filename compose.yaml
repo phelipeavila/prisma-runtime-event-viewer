@@ -1,0 +1,19 @@
+services:
+  runtime-event-viewer:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: runtime-event-viewer:dev
+    ports:
+      - "8000:8000"
+    environment:
+      PRISMA_CONSOLE_URL: ${PRISMA_CONSOLE_URL:-}
+      PRISMA_API_TOKEN: ${PRISMA_API_TOKEN:-}
+      PRISMA_API_KEY: ${PRISMA_API_KEY:-}
+      PRISMA_API_SECRET: ${PRISMA_API_SECRET:-}
+      PRISMA_VERIFY_TLS: ${PRISMA_VERIFY_TLS:-true}
+      FETCH_CHUNKS: ${FETCH_CHUNKS:-8}
+      FETCH_MAX_CONCURRENCY: ${FETCH_MAX_CONCURRENCY:-8}
+      DUCKDB_THREADS: ${DUCKDB_THREADS:-4}
+      DUCKDB_MEMORY_LIMIT: ${DUCKDB_MEMORY_LIMIT:-4GB}
+    restart: unless-stopped
